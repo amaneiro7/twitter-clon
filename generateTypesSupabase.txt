@@ -1,0 +1,3 @@
+npx supbase login
+
+npx supabase gen types typescript --project-id pclffkgypitiwowsmqfy > ./src/app/types/database.ts
