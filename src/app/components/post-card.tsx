@@ -1,7 +1,8 @@
 'use client'
-import { Card, CardHeader, CardBody, CardFooter, Avatar } from '@nextui-org/react'
+import { Card, CardHeader, CardBody, CardFooter } from '@nextui-org/react'
 import { IconMessageCircle, IconHeart, IconRepeat } from '@tabler/icons-react'
 import Link from 'next/link'
+import { UserAvatar } from './user-avatar'
 
 export function PostCard ({
   userFullName,
@@ -19,7 +20,7 @@ export function PostCard ({
       <CardHeader className="justify-between">
         <div className="flex gap-x-2">
             <Link href={`/${userName}`}>
-                <Avatar radius="full" size="md" src={avatarUrl} />
+              <UserAvatar avatarUrl={avatarUrl}/>
             </Link>
           <div className="flex flex-col gap-1 items-start justify-center">
             <h4 className="text-small font-semibold leading-none text-default-600">{userFullName}</h4>

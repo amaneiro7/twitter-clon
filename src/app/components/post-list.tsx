@@ -1,7 +1,9 @@
 import { PostCard } from './post-card'
 import { type Post } from '../types/posts'
-
-export function PostLists ({ posts }: { posts: Post[] }) {
+export interface Props {
+  posts?: Post[]
+}
+export function PostLists ({ posts }: Props) {
   return (
     <>
       {
@@ -24,7 +26,7 @@ export function PostLists ({ posts }: { posts: Post[] }) {
                   userFullName={userFullName}
                   avatarUrl={avatarUrl}
                   content={content}
-                  />)
+                />)
           })
     }
     </>
