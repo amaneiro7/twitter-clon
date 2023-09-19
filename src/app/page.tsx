@@ -25,8 +25,8 @@ export default async function Home () {
         userAvatarUrl={session.user?.user_metadata?.avatar_url}
         username={session.user?.user_metadata?.usermane}
       />
-      <main className="flex flex-1 min-h-screen flex-row items-center justify-between">
-        <section className='w-full mx-auto border-l border-r border-white/20 min-h-screen'>
+      <main className="flex flex-1 min-h-screen flex-row justify-start mt-3 px-6">
+        <section className='flex-1 mx-auto border-l border-r border-white/20 min-h-screen'>
           <ComposePost userAvatarUrl={session.user?.user_metadata?.avatar_url} />
           <PostLists posts={posts} />
         </section>
