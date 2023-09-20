@@ -1,6 +1,5 @@
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
-import { AuthButtonServer } from './components/auth-button-server'
 import { redirect } from 'next/navigation'
 import { PostLists } from './components/post-list'
 import { type Database } from './types/database'
@@ -23,10 +22,11 @@ export default async function Home () {
     <div className='w-full flex flex-row justify-center'>
       <Header
         userAvatarUrl={session.user?.user_metadata?.avatar_url}
-        username={session.user?.user_metadata?.usermane}
+        userName={session.user?.user_metadata?.user_name}
+        userFullName={session.user?.user_metadata?.name}
       />
       <main className="flex flex-1 min-h-screen flex-row justify-start mt-3 px-6">
-        <section className='flex-1 mx-auto border-l border-r border-white/20 min-h-screen'>
+        <section className='max-w-[600px] flex-1 mx-auto border-l border-r border-white/20 min-h-screen'>
           <ComposePost userAvatarUrl={session.user?.user_metadata?.avatar_url} />
           <PostLists posts={posts} />
         </section>
