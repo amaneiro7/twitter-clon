@@ -6,7 +6,7 @@ export function SignOutBox ({ userName }: { userName: string }) {
             <Link href='#' className='cursor-pointer px-4 py-3 transition w-full hover:bg-slate-600/70'>
                 Agregar una cuenta existente
             </Link>
-            <Link href='#' className='flex flex-col cursor-pointer px-4 py-3 transition w-full hover:bg-slate-500'>
+            <Link href='#' className='flex flex-col cursor-pointer px-4 py-3 transition w-full hover:bg-slate-600/70'>
                 <span>Cerrar la sesión de</span>
                 <span>{`@${userName}`}</span>
             </Link>
