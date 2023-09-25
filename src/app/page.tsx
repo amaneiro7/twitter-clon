@@ -1,11 +1,10 @@
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
-import { PostLists } from './components/post-list'
 import { type Database } from './types/database'
-import { ComposePost } from './components/compose-posts'
 import { Header } from './components/navbar/header-navbar'
 import { Aside } from './components/aside/aside'
+import { MainContent } from './components/main-content/main-section'
 
 export default async function Home () {
   const supabase = createServerComponentClient<Database>({ cookies })
@@ -19,17 +18,16 @@ export default async function Home () {
     .from('posts')
     .select('*, user:users(name, user_name,avatar_url)')
   return (
-    <div className='w-full flex flex-row justify-center'>
-      <Header
-        userAvatarUrl={session.user?.user_metadata?.avatar_url}
-        userName={session.user?.user_metadata?.user_name}
-        userFullName={session.user?.user_metadata?.name}
-      />
-      <main className="flex flex-1 min-h-screen flex-row justify-start mt-3 px-6">
-        <section className='max-w-[600px] flex-1 mx-auto border-l border-r border-white/20 min-h-screen'>
-          <ComposePost userAvatarUrl={session.user?.user_metadata?.avatar_url} />
-          <PostLists posts={posts} />
-        </section>
+    <div className='w-full min-h-[932px] flex flex-row items-stretch pointer-events-auto'>
+      <header className='relative flex flex-col items-end grow'>
+        <Header
+          userAvatarUrl={session.user?.user_metadata?.avatar_url}
+          userName={session.user?.user_metadata?.user_name}
+          userFullName={session.user?.user_metadata?.name}
+        />
+      </header>
+      <main className="flex grow pt-3 shrink min-h-screen flex-row justify-center items-start">
+        <MainContent userAvatarUrl={session.user?.user_metadata?.avatar_url} posts={posts} />
         <Aside />
       </main>
     </div>

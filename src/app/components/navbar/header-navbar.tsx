@@ -60,9 +60,8 @@ export async function Header ({
 
   ]
   return (
-    <header className='min-w-fit'>
-      <div className='flex flex-col w-[275px] h-full overflow-y-auto items-end gap-8'>
-        <div className='h-full top-0 fixed basis-0 flex flex-col justify-around items-end gap-8'>
+      <div className='flex flex-col w-[275px] top-0 fixed h-full overflow-y-auto overflow-x-auto justify-around self-end items-end gap-8'>
+        <div className='h-full top-0 fixed basis-0 flex flex-col justify-around items-start gap-8'>
           <nav className='flex-1'>
             <ul className='h-full flex flex-col'>
               {navbarList.map((data, index) => (
@@ -91,6 +90,5 @@ export async function Header ({
           <AuthButtonServer />
         </div>
       </div>
-    </header>
   )
 }
