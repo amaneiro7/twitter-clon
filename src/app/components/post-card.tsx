@@ -3,6 +3,7 @@ import { Card, CardHeader, CardBody, CardFooter } from '@nextui-org/react'
 import { IconMessageCircle, IconHeart, IconRepeat } from '@tabler/icons-react'
 import Link from 'next/link'
 import { UserAvatar } from './user-avatar'
+import { ShareIcon, StadisticsIcon } from './icons'
 
 export function PostCard ({
   userFullName,
@@ -34,14 +35,20 @@ export function PostCard ({
         </p>
       </CardBody>
       <CardFooter className="gap-3 flex place-content-between">
-        <button type='button' title='Message Button'>
+        <button type='button' title='Message Button' className='rounded-full bg-sky-500/90'>
             <IconMessageCircle className="w-4 h-4"/>
+        </button>
+        <button type='button' title='Retweet Button'>
+            <IconRepeat className="w-4 h-4 rotate-90"/>
         </button>
         <button type='button' title='Like Button'>
             <IconHeart className="w-4 h-4"/>
         </button>
-        <button type='button' title='Retweet Button'>
-            <IconRepeat className="w-4 h-4"/>
+        <button type='button' title='Like Button'>
+            <StadisticsIcon className="w-4 h-4"/>
+        </button>
+        <button type='button' title='Like Button'>
+            <ShareIcon className="w-4 h-4"/>
         </button>
       </CardFooter>
     </Card>
